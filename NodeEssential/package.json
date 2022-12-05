@@ -1,0 +1,17 @@
+{
+  "name": "nodeessential",
+  "version": "1.0.0",
+  "description": "my node modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "adarsh srivastav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

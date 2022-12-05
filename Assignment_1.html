@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Assignment -1</title>
+</head>
+</head>
+
+<body>
+
+    <div class="row mt-4">
+        <div class="col">
+            <input type="text" class="form-control" id="frst_nme" placeholder="Enter first name">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="lst_nme" placeholder="Enter last name">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="city" placeholder="Enetr city">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="cntry" placeholder="Enetr country">
+        </div>
+
+    </div>
+    <div class="row col-md-6 mt-4" style="margin: auto;">
+        <div class="col">
+            <input type="button" class="btn btn-primary form-control" value="Add row to bottom" id="ad_row_btm">
+        </div>
+        <div class="col">
+            <input type="button" class="btn btn-primary form-control" value="Add row to top" id="ad_row_top">
+        </div>
+    </div>
+
+    <div class="col-md-6 mt-3" style="margin: auto;">
+        <table class="table table-bordered table-dark table-striped" id="mytbl">
+            <thead>
+                <tr>
+                    <td>SL.No</td>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>City</td>
+                    <td>Country</td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+
+    <script>
+        let emtyRow = "<tr><td colspan='5' class='text-center'>Click on button to add new row</td></tr>"
+        $(document).ready(() => {
+
+            $("#mytbl tbody").append(emtyRow);
+            //frst_nme lst_nme city cntry
+            $("#ad_row_btm").click(() => {
+                const firstName = $("#frst_nme").val().trim();
+                const lastName = $("#lst_nme").val().trim();
+                const city = $("#city").val().trim();
+                const country = $("#cntry").val().trim();
+
+                if (firstName !== "" && lastName !== "" && city !== "" && country !== "") {
+                    if ($("#mytbl tbody").children().children().length == 1) {
+                        $("#mytbl tbody").html("");
+                    }
+                    const slNo = $("#mytbl tbody").children().length + 1;
+
+                    const dynmcRow = "<tr> <td>" + slNo + "</td> <td>" + firstName + "</td> <td>" + lastName + "</td> <td>" + city + "</td> <td>" + country + "</td> </tr>"
+
+                    $("#mytbl tbody").append(dynmcRow);
+
+                    $("#frst_nme").val("");
+                    $("#lst_nme").val("");
+                    $("#city").val("");
+                    $("#cntry").val("");
+                }
+
+
+            });
+
+
+
+            $("#ad_row_top").click(() => {
+                const firs_tName = $("#frst_nme").val().trim();
+                const last_Name = $("#lst_nme").val().trim();
+                const city_top = $("#city").val().trim();
+                const country_top = $("#cntry").val().trim();
+
+                if (firs_tName !== "" && last_Name !== "" && city_top !== "" && country_top !== "") {
+                    if ($("#mytbl tbody").children().children().length == 1) {
+                        $("#mytbl tbody").html("");
+                    }
+                    const sl_No = $("#mytbl tbody").children().length + 1;
+
+                    const dynmcRow = "<tr> <td>" + sl_No + "</td> <td>" + firs_tName + "</td> <td>" + last_Name + "</td> <td>" + city_top + "</td> <td>" + country_top + "</td> </tr>"
+
+                    $("#mytbl tbody ").prepend(dynmcRow);
+
+                    $("#frst_nme").val("");
+                    $("#lst_nme").val("");
+                    $("#city").val("");
+                    $("#cntry").val("");
+                }
+
+
+            });
+
+        });
+        
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Assignment-2</title>
+</head>
+
+<body>
+    <div class="form-group col-md-5" style="margin:auto">
+        <label for="inputString">Enter a sentence</label>
+        <input type="text" name="inputString" id="inputString" class="form-control" placeholder="Enter a sentence">
+    </div>
+    <div class="form-group col-md-5 mt-4" style="margin:auto">
+        <label for="inputCharacter">Enter a sentence</label>
+        <input type="text" name="inputCharacter" id="inputCharacter" class="form-control"
+            placeholder="Enter a character">
+        <span id="char_Not_Present" style="color:red;font-size: 25px;font-weight: 900;"></span>
+    </div>
+
+    <div class="form-group col-md-5 mt-4" style="margin:auto">
+        <input type="button" name="btn_sbmt" id="btn_sbmt" class="form-control btn btn-danger" value="submit">
+    </div>
+
+    <script>
+
+        let btn = document.getElementById("btn_sbmt");
+
+        btn.addEventListener("click", () => {
+
+            let inpt_sentnce = document.getElementById("inputString").value;
+            let inpt_chrctr = document.getElementById("inputCharacter").value;
+            let char_prsnt = document.getElementById("char_Not_Present");
+
+            if (inpt_sentnce.includes(inpt_chrctr)) {
+                for (let i = 0; i < inpt_sentnce.length; i++) {
+                    if (inpt_sentnce.charAt(i) === inpt_chrctr) {
+
+                        char_prsnt.innerHTML = "REMAINING STRING IS :- " + inpt_sentnce.substring(inpt_sentnce.indexOf(inpt_chrctr) + 1);
+
+                    }
+                }
+            }
+            else {
+                char_prsnt.innerHTML = "letter not present";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
